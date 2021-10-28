@@ -23,7 +23,7 @@ namespace MvcMovie.Models
         [DataType(DataType.Date)]
         public DateTime Birthday { get; set; }
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$", ErrorMessage = "Must only use letters or spaces")]
+        [RegularExpression(@"^[a-zA-Z\s]*$", ErrorMessage = "Must only use letters or spaces")]
         [Required]
         [StringLength(30)]
         public string Skill { get; set; }
@@ -33,7 +33,8 @@ namespace MvcMovie.Models
         [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$", ErrorMessage = "Must Begin with uppercase letter")]
         [StringLength(30)]
         public string Birthplace { get; set; }
-
+        // 1
+        [Range(0, int.MaxValue, ErrorMessage = "Can't be negative")]
         [Display(Name = "Net Worth")]
         [DataType(DataType.Currency)]
         public decimal Networth { get; set; }
